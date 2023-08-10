@@ -59,14 +59,14 @@ class MainActivity : AppCompatActivity() {
    fun createLists(){
         postsList = mutableListOf()
        storiesList = mutableListOf()
-        for (item in 1..1000){
+        for (item in 1..100){
             postsList.add(Posts(
                 likes_count = "" + (getString(R.string.like_counter_txt).toInt()+ item) , shares_count = "" + (item/5).toInt()+ " shares",
                 left_hours = "" + getString(R.string.hours_left).toInt()+(0.5*item).toInt() + "h .",
                 imageId = R.drawable.fcblogo, post_txt = "" + getString(R.string.post_txt)))
 
         }
-       for (item in 1..50){
+       for (item in 1..30){
            storiesList.add(Stories(imageId = R.drawable.fcblogo))
        }
     }

@@ -10,8 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Objects
 
-class PostsRecyclerAdapter (items : MutableList<Posts>) : RecyclerView.Adapter<PostsRecyclerAdapter.PostsViewHolder>() {
-    var item : MutableList<Posts> = items
+class PostsRecyclerAdapter (val items : MutableList<Posts>) : RecyclerView.Adapter<PostsRecyclerAdapter.PostsViewHolder>() {
     class PostsViewHolder(view : View) : RecyclerView.ViewHolder(view){
         var likes_count : TextView = view.findViewById(R.id.like_counter_txt)
         var shares_count : TextView = view.findViewById(R.id.share_count)
@@ -29,7 +28,7 @@ class PostsRecyclerAdapter (items : MutableList<Posts>) : RecyclerView.Adapter<P
 
 
     override fun onBindViewHolder(holder: PostsViewHolder, position: Int) {
-        val item = item[position]
+        val item = items[position]
         holder.likes_count.text = item.likes_count
         holder.shares_count.text = item.shares_count
         holder.left_hours.text = item.left_hours
@@ -46,7 +45,7 @@ class PostsRecyclerAdapter (items : MutableList<Posts>) : RecyclerView.Adapter<P
     interface OnItemClick{
         fun onClick(Position: Int, item : Posts)
     }
-    override fun getItemCount(): Int = item.size
+    override fun getItemCount(): Int = items.size
 
 
 }
